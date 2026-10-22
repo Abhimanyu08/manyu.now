@@ -1,33 +1,34 @@
 @font-face {
-  font-family: "Bitter";
-  src: url("/fonts/Bitter.woff2") format("woff2");
-  font-display: swap;
+    font-family: "Bitter";
+    src: url("/fonts/Bitter.woff2") format("woff2");
+    font-display: swap;
 }
 
 @font-face {
-  font-family: "Bitter";
-  src: url("/fonts/Bitter-Italic.woff2") format("woff2");
-  font-style: italic;
-  font-display: swap;
+    font-family: "Bitter";
+    src: url("/fonts/Bitter-Italic.woff2") format("woff2");
+    font-style: italic;
+    font-display: swap;
 }
 
 :root {
-  --theme: #e85a48;
-  --bg: #fbfaf8;
-  --color: #444444;
-  --base-font-size: 16px;
-  --spacing: calc(1.1 * var(--base-font-size));
-  --font-sans: system-ui;
-  --font-serif: Bitter, ui-serif, Georgia, Cambria, Times New Roman, Times, serif;
+    --theme: #e85a48;
+    --bg: #fbfaf8;
+    --color: #444444;
+    --base-font-size: 16px;
+    --spacing: calc(1.1 * var(--base-font-size));
+    --font-sans: system-ui;
+    --font-serif:
+        Bitter, ui-serif, Georgia, Cambria, Times New Roman, Times, serif;
 }
 
 body {
-  background: var(--bg);
-  color: var(--color);
-  font-size: var(--base-font-size);
-  line-height: 1.6;
-  font-family: var(--font-serif);
-  min-height: 100dvh;
+    background: var(--bg);
+    color: var(--color);
+    font-size: var(--base-font-size);
+    line-height: 1.6;
+    font-family: var(--font-serif);
+    min-height: 100dvh;
 }
 
 /* RESET */
@@ -35,95 +36,99 @@ body {
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 * {
-  margin: 0;
+    margin: 0;
 }
 
 ul,
 ol {
-  list-style: none;
-  padding: 0;
+    list-style: none;
+    padding: 0;
 }
 
 img,
 picture,
 svg,
 video {
-  display: block;
-  max-width: 100%;
+    display: block;
+    max-width: 100%;
 }
 
 blockquote {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 a {
-  color: var(--theme);
-  text-decoration: none;
-  text-underline-offset: 2px;
+    color: var(--theme);
+    text-decoration: none;
+    text-underline-offset: 2px;
 }
 
 a:hover {
-  text-decoration: underline;
-  text-decoration-color: var(--theme);
+    text-decoration: underline;
+    text-decoration-color: var(--theme);
 }
 
 input,
 button,
 textarea,
 select {
-  font: inherit;
-  color: inherit;
+    font: inherit;
+    color: inherit;
+}
+
+hr {
+    border-style: groove;
 }
 
 /*LAYOUT */
 
 main {
-  max-width: 40rem;
-  width: 100%;
-  margin: auto;
-  padding: 2rem 1.4rem;
+    max-width: 40rem;
+    width: 100%;
+    margin: auto;
+    padding: 2rem 1.4rem;
 }
 
 nav {
-  margin-bottom: 4rem;
-  display: flex;
-  justify-content: space-between;
-  gap: 2rem;
+    margin-bottom: 4rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
 }
 
 nav a {
-  text-decoration: none;
-  font-family: var(--font-sans);
+    text-decoration: none;
+    font-family: var(--font-sans);
 }
 
 .page-item:first-of-type {
-  border-top: dotted 1px var(--theme);
+    border-top: dotted 1px var(--theme);
 }
 
 .page-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 1rem;
-  border-bottom: dotted 1px var(--theme);
-  padding: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    border-bottom: dotted 1px var(--theme);
+    padding: 0.5rem;
 }
 
 .page-item a {
-  flex-shrink: 0;
-  font-family: var(--font-sans);
+    flex-shrink: 0;
+    font-family: var(--font-sans);
 }
 
 .page-item aside {
-  font-style: italic;
-  font-size: 0.95rem;
-  text-align: right;
-  max-width: 50%;
+    font-style: italic;
+    font-size: 0.95rem;
+    text-align: right;
+    max-width: 50%;
 }
 
 p,
@@ -134,8 +139,8 @@ h4,
 h5,
 h6,
 blockquote {
-  overflow-wrap: break-word;
-  margin: 0 0 var(--spacing) 0;
+    overflow-wrap: break-word;
+    margin: 0 0 var(--spacing) 0;
 }
 
 p:last-child,
@@ -143,31 +148,31 @@ blockquote:last-child,
 ul:last-child,
 ol:last-child,
 pre:last-child {
-  margin-bottom: 0px;
+    margin-bottom: 0px;
 }
 
 h1 {
-  font-size: 2.625rem;
-  line-height: 1.2;
-  font-family: var(--font-sans);
-  color: var(--theme);
+    font-size: 2.625rem;
+    line-height: 1.2;
+    font-family: var(--font-sans);
+    color: var(--theme);
 }
 
 h2 {
-  font-size: 2.0625rem;
-  line-height: 1.2;
+    font-size: 2.0625rem;
+    line-height: 1.2;
 }
 
 h3 {
-  font-size: 1.625rem;
-  line-height: 1.2;
-  font-family: var(--font-sans);
+    font-size: 1.625rem;
+    line-height: 1.2;
+    font-family: var(--font-sans);
 }
 
 h4 {
-  font-size: 1.25rem;
+    font-size: 1.25rem;
 }
 
 h5 {
-  font-size: 0.8125rem;
+    font-size: 0.8125rem;
 }

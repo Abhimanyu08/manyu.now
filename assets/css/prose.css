@@ -1,44 +1,55 @@
 .prose a {
-  text-decoration: underline;
-  text-decoration-color: var(--theme);
-  color: var(--color);
+    text-decoration: underline;
+    text-decoration-color: var(--theme);
+    color: var(--color);
 }
 
 .prose ol,
 .prose ul {
-  padding-left: 1.2rem;
-  margin-bottom: var(--spacing);
+    padding-left: 1.2rem;
+    margin-bottom: var(--spacing);
 }
 
 .prose ul {
-  list-style: disc;
+    list-style: disc;
 }
 
 .prose ol {
-  list-style: decimal;
+    list-style: decimal;
 }
 
 .prose li {
-  margin: 0.5rem 0;
+    margin: 0.5rem 0;
 }
 
 .prose li > ul,
 .prose li > ol {
-  margin: 0.5rem 0;
+    margin: 0.5rem 0;
 }
 
 .prose blockquote {
-  padding: var(--spacing);
-  background-color: #eeeeee;
-  border-radius: 8px;
+    padding: var(--spacing);
+    background-color: #eeeeee;
+    border-radius: 8px;
 }
 
 .prose cite {
-  display: block;
+    display: block;
 }
 
 .prose code {
-  font-family: monospace, monospace;
-  background: #dddddd;
-  padding: 1px 3px;
+    font-family: monospace, monospace;
+    background: #dddddd;
+    padding: 1px 3px;
+}
+.prose .portrait {
+    float: right;
+    width: 35%;
+    margin-left: 2em;
+}
+
+/*Any element after hr needs to have a top margin, otherwise it looks very
+close to the hr element*/
+.prose hr + * {
+    margin-top: 2em;
 }

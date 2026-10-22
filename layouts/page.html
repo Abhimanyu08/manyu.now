@@ -1,6 +1,8 @@
 {{ define "main" }}
 <article class="prose">
+  {{if not .Params.hideTitle}}
   <h1>{{ .Title }}</h1>
+  {{ end }}
   {{ .Content }} {{ if .Date}}
   <br />
   <p>Published on <b>{{ .Date.Format "January 2, 2006" }}</b>.</p>

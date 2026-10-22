@@ -1,0 +1,15 @@
+{{define "main"}}
+<h1>{{ .Title }}</h1>
+
+{{ .Content }}
+
+{{range .Pages}}
+<article class="prose">
+  <h3>
+    <time datetime={{.Date}} class="drop-date">{{.Date.Format "January 2, 2006"}}</time>
+    </h2>
+    {{.Content}}
+</article>
+</div>
+{{end}}
+{{end}}

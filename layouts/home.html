@@ -1,16 +1,5 @@
 {{ define "main" }}
-<h1>{{ .Title }}</h1>
-
 <article class="prose">{{ .Content }}</article>
 
 <br />
-
-<ul>
-  {{ range .RegularPages.ByTitle }}
-  <li class="page-item">
-    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-    <aside>{{ .Description }}</aside>
-  </li>
-  {{ end }}
-</ul>
 {{ end }}

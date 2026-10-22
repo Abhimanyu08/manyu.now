@@ -1,10 +1,24 @@
 ---
-title: Hugoloop
-description: Joodaloop's recommended starter for a new Hugo site
+title: Abhimanyu
+description: Personal website of Abhimanyu
 ---
 
-The simplest Hugo site structure I could come up with. It doesn't use themes, any unnecessary folders (data, archetypes), or the other powerful Hugo features like image processing, taxonomies, render hooks etc.
+<!--<img src="me.jpg" alt="Profile picture of Abhimanyu" class="portrait">-->
 
-The goal is to make it usable and understandable without you having to read the docs to get started. I use this as a starter myself almost every month and it's been refined to only contain the truly universal files/configs.
+Hi, I'm **Abhimanyu**.
+<!--Can I make it so that my age is calculated using now minus my birthdate? -->
 
-To get started, [visit the repository](https://github.com/joodaloop/hugoloop) and follow the instructions in the README page.
+I'm a 28 year old man living in Bangalore, India. The [invisible hand of society](https://en.wikipedia.org/wiki/Invisible_hand) pays me for my skills in _frontend development_. Although, I like to think of myself as a generalist programmer who [enjoys solving puzzles](<>) using code just for the sake of it, the majority of my personal life has been spent suffering through my user interface decisions and iterating over them. See [Work](/work) for more.
+
+## Life in lists
+
+### Software I like using
+
+- Bear
+- Craft
+- Fold
+- Linear
+- !Habits
+- Quiche Browser
+- Overcast
+- Halide
