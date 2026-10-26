@@ -6,17 +6,20 @@ hideTitle: true
 
 # [Putting scene](https://puttingscene.com)
 
+**May 2025 - Now**
+
 Putting scene is an app/website where users flock to book the interesting offline events happening in Bangalore. The way it differentiated itself from other local competitors like District was by manually curating the good events out of a large volume of events from other websites (yes, we listed events listed on our competitors's website too) and by partnering with interesting venues/resturants to list events on the app/website. This means that it required three pieces of software
 
 - An app/website for consumers to come and book events.
 - A platform for restaurants/venues i.e partners to upload events and see bookings.
 - An internal dashboard for operations team through which they could upload the manually curated events and oversee the event and partner details.
 
-As the founding engineer, I saw built and launched the Putting Scene website, Partner dashboard and Admin dashboard within first quarter of me joining the company.
+As the founding engineer, I built and launched the Putting Scene website, Partner dashboard and Admin dashboard within first quarter of  joining the company.
 I then built the company's first ever Android and iOS app while learning how to build one on the go. The app was built and launched on 9th October, 2025.
 
 # Emergent 
 
+**Feb 2024 - Dec 2024**
 
 Note: `pre-llm` All the code written while working was almost pre-llm. The most you could do was paste in your code into ChatGPT's chat box and paste that output back into your code editor. 
 
@@ -29,6 +32,7 @@ Although impressive when they worked, these demos were extremely flaky. Thankful
 
 # [A better journal](https://abetterjournal.com)
 
+**Dec 2025 - May 2026**
 `pre-llm`
 
 Me and [Judah](https://joodaloop.com) collaborated on making a journalling app which we claimed was better than anything on the market. We set out to make an app which we could use to track our day and what projects we worked on. But, after I made v0 of the app as an SPA, we expanded our goals to make this app local-first i.e It should be usable locally, without any network connection. 
@@ -36,6 +40,8 @@ This meant, we took on a full rewrite of the app including writing a [Sync engin
 Although, we stopped using the app ourselves and thereby developing it further, I'm still proud of how app looks/feels when using. 
 
 # Notedown
+
+**Aug 2022 - January 2024**
 
 `pre-llm`
 
@@ -56,4 +62,11 @@ So, I decided to build a website for him which hosts all of his essays. I scrape
 
 # [Kasrat](https://kasrat.app)
 
+**March 2026 - Now**
+
 Me and brother have been building a workout tracking app in our free time. Stay tuned!
+
+# [Blog on Maching learning](https://abhimanyu08.github.io/blog/)
+
+I used to write extensive technical blogs on Machine learning and mathematics behind it during my college years. They are all available at https://abhimanyu08.github.io/blog/. Although, I can't find the screenshot but [one of my blogs](https://abhimanyu08.github.io/blog/deep-learning/mathematics/2021/06/18/final.html) was praised as being "well-written" by someone in Apple's ML team. 
+
