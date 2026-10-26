@@ -17,16 +17,20 @@ Putting scene is an app/website where users flock to book the interesting offlin
 As the founding engineer, I built and launched the Putting Scene website, Partner dashboard and Admin dashboard within first quarter of  joining the company.
 I then built the company's first ever Android and iOS app while learning how to build one on the go. The app was built and launched on 9th October, 2025.
 
+Once the only designer in the company who had been there before me left, I was solely responsible for talking with non-techinical stakeholders - founder and operations person to plan out scope, features and priorities. I made an attempt to bring some order to chaos by introducing Linear for project management and Craft for documentation. I also acted as mediocre project manager for some time, discussing and delegating work between design, frontend and backend while doing my own IC work. 
+
+Circa Dec 2025, I had the privilege to work under [Pratul Kalia](https://www.linkedin.com/in/pratulkalia/) who brought to light several complexity demons I had sheltered under the systems I had built and made me aware of my naive decisions. My standard of great work accelerated massively while working under him and we rehauled the App/website (twice!), Admin dashboard and Partner dashboard over the next few months while also launching several features.
+
 # Emergent 
 
 **Feb 2024 - Dec 2024**
 
-Note: `pre-llm` All the code written while working was almost pre-llm. The most you could do was paste in your code into ChatGPT's chat box and paste that output back into your code editor. 
+Note: `pre-llm` All the code written while working was almost pre-llm. The most you could do was paste in your code into ChatGPT's chat box and paste that output back into your code editor.
 
-I joined Mukund Jha, founder of Dunzo and Madhav Jha in the pre-seed phase of [Emergent](https://emergent.sh) on the recommendation of [Siddharth Sharma](https://svs.io). At that time we were heavily in experimentation phase but our initial goal was the build an Agent which could automate UI testing of apps and websites. An MVP, I built an agent which could take natural language commands like "Book a flight from me from Bombay to Delhi" and write playwright code to achieve the goal.
-I later built a telegram bot which could receive these intructions as telegram messages. It would operated on a remote machine to achieve it's goals and would converse with user if it got stuck anywhere.
+I joined Mukund Jha, founder of Dunzo and Madhav Jha in the pre-seed phase of [Emergent](https://emergent.sh) on the recommendation of [Siddharth Sharma](https://svs.io). At that time we were heavily in experimentation phase and our initial goal was to build an Agent which could automate UI testing of  websites. As MVP, I built an agent which could take natural language commands like "Book a flight from me from Bombay to Delhi" and write playwright code to achieve the goal.
+I later built a telegram bot which could receive these intructions as telegram messages to experiment with "human in the loop". It would operate on a remote machine to achieve it's goals and would converse with user if it got stuck anywhere or needed permissions.
 
-Although impressive when they worked, these demos were extremely flaky. Thankfully, the demo worked on call during our YC interview. I'm not sure how big of a role it played, but we eventually got into YC.
+Although impressive when they worked, the demos for MVPs were extremely flaky. We kept iterating on them but were mostly working at the boundaries of the technology at that time.  Thankfully, the demo worked on call during our YC interview. I'm not sure how big of a role it played, but we eventually got into YC.
 
 
 
