@@ -1,0 +1,14 @@
+<aside>
+  <h2>{{ .title }}</h2>
+  <div id="aside-body" class="prose">
+    {{ range .groups }}
+    <section>
+      <h3>{{ .title }} </h3>
+      {{ with .description }}<p>{{ . | markdownify }}</p>{{ end }}
+      {{ with .items }}
+      <ul>{{ range . }}<li>{{ . | markdownify }}</li>{{ end }}</ul>
+      {{ end }}
+    </section>
+    {{ end }}
+  </div>
+</aside>

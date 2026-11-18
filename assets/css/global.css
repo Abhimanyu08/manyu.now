@@ -1,34 +1,74 @@
+/* FONTS
+   Self-hosted from Google Fonts (Latin subset), both under the SIL Open Font License. */
+
 @font-face {
-    font-family: "Bitter";
-    src: url("/fonts/Bitter.woff2") format("woff2");
+    font-family: "Source Serif 4";
+    src: url("/fonts/SourceSerif4.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 200 900;
     font-display: swap;
 }
 
 @font-face {
-    font-family: "Bitter";
-    src: url("/fonts/Bitter-Italic.woff2") format("woff2");
+    font-family: "Source Serif 4";
+    src: url("/fonts/SourceSerif4-Italic.woff2") format("woff2");
     font-style: italic;
+    font-weight: 200 900;
     font-display: swap;
 }
+
+@font-face {
+    font-family: "Suez One";
+    src: url("/fonts/SuezOne.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+
+/* DESIGN TOKENS
+   Names and values match the tokens in the Paper file, so design and code stay in sync. */
 
 :root {
-    --theme: #e85a48;
-    --bg: #fbfaf8;
-    --color: #444444;
-    --base-font-size: 16px;
-    --spacing: calc(1.1 * var(--base-font-size));
-    --font-sans: system-ui;
-    --font-serif:
-        Bitter, ui-serif, Georgia, Cambria, Times New Roman, Times, serif;
-}
+    /* Color */
+    --background: #faf0d2;
+    --accent: #fa132e;
+    --text: #444444;
 
-body {
-    background: var(--bg);
-    color: var(--color);
-    font-size: var(--base-font-size);
-    line-height: 1.6;
-    font-family: var(--font-serif);
-    min-height: 100dvh;
+    /* Font family */
+    --font-body: "Source Serif 4", Georgia, serif;
+    --font-heading: "Suez One", Georgia, serif;
+    --font-sans: system-ui, sans-serif;
+
+    /* Font size */
+    --body: 20px;
+    --h2: 24px;
+    --h1: 32px;
+
+    /* Line height */
+    --leading-body: 32px;
+    --leading-tight: 24px;
+    --leading-heading: 40px;
+
+    /* Spacing scale: the number is the value divided by 4px */
+    --spacing-1: 4px;
+    --spacing-2: 8px;
+    --spacing-3: 12px;
+    --spacing-4: 16px;
+    --spacing-6: 24px;
+    --spacing-8: 32px;
+    --spacing-12: 48px;
+    --spacing-16: 64px;
+    --spacing-24: 96px;
+    --spacing-32: 128px;
+    --spacing-48: 192px;
+    --spacing-64: 256px;
+    --spacing-96: 384px;
+    --spacing-128: 512px;
+    --spacing-160: 640px;
+    --spacing-192: 768px;
+
+    /* Layout */
+    --content-width: 592px;
 }
 
 /* RESET */
@@ -62,17 +102,6 @@ blockquote {
     padding: 0;
 }
 
-a {
-    color: var(--theme);
-    text-decoration: none;
-    text-underline-offset: 2px;
-}
-
-a:hover {
-    text-decoration: underline;
-    text-decoration-color: var(--theme);
-}
-
 input,
 button,
 textarea,
@@ -85,51 +114,79 @@ hr {
     border-style: groove;
 }
 
-/*LAYOUT */
+p {
+    text-wrap: pretty;
+}
+
+/* BASE */
+
+body {
+    background: var(--background);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: var(--body);
+    line-height: var(--leading-body);
+    min-height: 100dvh;
+    padding: var(--spacing-32);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+    text-underline-offset: 2px;
+}
+
+a:hover {
+    text-decoration: underline;
+    text-decoration-color: var(--accent);
+}
+
+/* LAYOUT */
 
 main {
-    max-width: 40rem;
-    width: 100%;
-    margin: auto;
-    padding: 2rem 1.4rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+main > article {
+    width: 45%;
+}
+
+main > aside {
+    width: 45%;
+    margin-top: calc(var(--leading-heading) + var(--spacing-6));
 }
 
 nav {
-    margin-bottom: 4rem;
+    width: 45%;
     display: flex;
     justify-content: space-between;
-    gap: 2rem;
+    gap: var(--spacing-8);
+    margin-bottom: var(--spacing-16);
+    font-family: var(--font-sans);
+    line-height: var(--leading-tight);
+}
+
+main > aside > div#aside-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-8);
 }
 
 nav a {
+    color: var(--accent);
     text-decoration: none;
-    font-family: var(--font-sans);
+    font-family: var(--font-heading);
 }
+/*
+nav a[aria-current="page"] {
+    font-weight: 700;
+}*/
 
-.page-item:first-of-type {
-    border-top: dotted 1px var(--theme);
-}
-
-.page-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 1rem;
-    border-bottom: dotted 1px var(--theme);
-    padding: 0.5rem;
-}
-
-.page-item a {
-    flex-shrink: 0;
-    font-family: var(--font-sans);
-}
-
-.page-item aside {
-    font-style: italic;
-    font-size: 0.95rem;
-    text-align: right;
-    max-width: 50%;
-}
+/* TYPOGRAPHY */
 
 p,
 h1,
@@ -140,7 +197,48 @@ h5,
 h6,
 blockquote {
     overflow-wrap: break-word;
-    margin: 0 0 var(--spacing) 0;
+}
+
+/* A blank line between paragraphs, as in the About text */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    color: var(--text);
+}
+
+h1 {
+    font-size: var(--h1);
+    line-height: var(--leading-heading);
+    margin-top: var(--spacing-16);
+    margin-bottom: var(--spacing-6);
+}
+
+h2 {
+    font-size: var(--h2);
+    line-height: var(--leading-tight);
+    margin-top: var(--spacing-12);
+    margin-bottom: var(--spacing-6);
+}
+
+h3,
+h4,
+h5,
+h6 {
+    font-size: var(--body);
+    line-height: var(--leading-tight);
+    margin-top: var(--spacing-8);
+    margin-bottom: var(--spacing-3);
+}
+
+/* No extra space above the first thing on a page */
+:is(h1, h2, h3, h4, h5, h6):first-child {
+    margin-top: 0;
 }
 
 p:last-child,
@@ -148,31 +246,38 @@ blockquote:last-child,
 ul:last-child,
 ol:last-child,
 pre:last-child {
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 
-h1 {
-    font-size: 2.625rem;
-    line-height: 1.2;
+/* Aside */
+
+main > aside > div#aside-body p {
+    margin-bottom: var(--spacing-3);
+}
+
+/* PAGE LIST (Writing) */
+
+.page-item:first-of-type {
+    border-top: dotted 1px var(--accent);
+}
+
+.page-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--spacing-4);
+    border-bottom: dotted 1px var(--accent);
+    padding: var(--spacing-2);
+}
+
+.page-item a {
+    flex-shrink: 0;
     font-family: var(--font-sans);
-    color: var(--theme);
 }
 
-h2 {
-    font-size: 2.0625rem;
-    line-height: 1.2;
-}
-
-h3 {
-    font-size: 1.625rem;
-    line-height: 1.2;
-    font-family: var(--font-sans);
-}
-
-h4 {
-    font-size: 1.25rem;
-}
-
-h5 {
-    font-size: 0.8125rem;
+.page-item aside {
+    font-style: italic;
+    font-size: 0.95em;
+    text-align: right;
+    max-width: 50%;
 }
