@@ -32,6 +32,7 @@
   {{ end }} {{ with resources.Get "css/prose.css" | minify | fingerprint }}
   <link rel="stylesheet" type="text/css" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" />
   {{ end }}
+  <script defer src="/_v/v.js"></script>
 </head>
 
 <body>
