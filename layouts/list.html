@@ -1,16 +1,16 @@
 {{ define "main" }}
-<h1>{{ .Title }}</h1>
-
-{{ .Content }}
-
-<br />
-
 <div>
-  {{ range .RegularPages }}
-  <div class="page-item">
-    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-    <aside>{{ .Description }}</aside>
+  {{ with .Content }}<div class="prose">{{ . }}</div>{{ end }}
+
+  <br />
+
+  <div>
+    {{ range .RegularPages }}
+    <div class="page-item">
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      <aside>{{ .Description }}</aside>
+    </div>
+    {{ end }}
   </div>
-  {{ end }}
 </div>
 {{ end }}

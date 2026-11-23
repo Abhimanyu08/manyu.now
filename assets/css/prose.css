@@ -1,126 +1,110 @@
 /* PROSE
-   Styles for content inside <article class="prose">: lists, links, quotes, code
-   and the Life in lists grid. Loaded after global.css, which holds the tokens and base type. */
+   Typographic rhythm for running text inside .prose: heading spacing, lists,
+   links, quotes and code. Loaded after global.css, which holds the tokens,
+   base type and components.
+
+   Every selector is scoped with :where(.prose), which adds no specificity.
+   Prose rules are defaults for bare elements, so any class-based component
+   rule (like .sidebar-group > *) overrides them without fighting. */
+
+/* HEADINGS
+   Line height and margins only; face and size come from global.css. */
+
+:where(.prose) :where(h2) {
+    line-height: var(--leading-tight);
+    margin-top: var(--spacing-12);
+    margin-bottom: var(--spacing-6);
+}
+
+:where(.prose) :where(h3, h4, h5, h6) {
+    line-height: var(--leading-tight);
+    margin-top: var(--spacing-8);
+    margin-bottom: var(--spacing-3);
+}
+
+/* No extra space above the first thing in a block */
+:where(.prose) :where(h2, h3, h4, h5, h6):first-child {
+    margin-top: 0;
+}
 
 /* LISTS
    Bulleted list from the design: a 16px bullet column, an 8px gap to the text,
    and 8px between items. Long items wrap under the text, not under the bullet. */
 
-.prose ul,
-.prose ol {
+:where(.prose) ul,
+:where(.prose) ol {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-2);
     margin-bottom: var(--leading-body);
 }
 
-.prose :is(ul, ol):last-child {
+:where(.prose) :is(ul, ol):last-child {
     margin-bottom: 0;
 }
 
-.prose li {
+:where(.prose) li {
     position: relative;
     padding-left: calc(var(--spacing-4) + var(--spacing-2));
     line-height: var(--leading-tight);
 }
 
-.prose ul > li::before {
+:where(.prose) ul > li::before {
     content: "•";
     position: absolute;
     left: 0;
     width: var(--spacing-4);
 }
 
-.prose ol {
+:where(.prose) ol {
     counter-reset: item;
 }
 
-.prose ol > li {
+:where(.prose) ol > li {
     counter-increment: item;
 }
 
-.prose ol > li::before {
+:where(.prose) ol > li::before {
     content: counter(item) ".";
     position: absolute;
     left: 0;
     font-variant-numeric: tabular-nums;
 }
 
-.prose li > ul,
-.prose li > ol {
+:where(.prose) li > ul,
+:where(.prose) li > ol {
     margin-top: var(--spacing-2);
     margin-bottom: 0;
 }
 
-/* LIFE IN LISTS
-   A two-column grid. Each row is as tall as its tallest section,
-   so the headings in a row always line up. Wrap the sections like this:
-
-   <div class="lists-grid">
-     <section> ## Apps ... </section>
-     <section> ## Personal heroes ... </section>
-   </div>
-*/
-
-.lists-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    column-gap: var(--spacing-6);
-    row-gap: var(--spacing-12);
-    align-items: start;
-}
-
-.lists-grid > section {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-3);
-}
-
-/* Header → body is 16px; paragraph → list is 12px */
-.lists-grid h2 {
-    font-size: var(--body);
-    margin: 0 0 var(--spacing-1);
-}
-
-.lists-grid p,
-.lists-grid ul {
-    margin-bottom: 0;
-}
-
-@media (max-width: 600px) {
-    .lists-grid {
-        grid-template-columns: minmax(0, 1fr);
-    }
-}
-
 /* LINKS, QUOTES, CODE */
-.prose p,
+:where(.prose) p,
 blockquote {
     margin-bottom: var(--leading-body);
 }
 
-.prose a {
+:where(.prose) a {
     text-decoration: underline;
     text-decoration-color: var(--accent);
     color: var(--text);
 }
 
-.prose blockquote {
+:where(.prose) blockquote {
     padding: var(--spacing-4);
     background-color: #eeeeee;
     border-radius: 8px;
 }
 
-.prose cite {
+:where(.prose) cite {
     display: block;
 }
 
-.prose code {
+:where(.prose) code {
     font-family: monospace, monospace;
     background: #dddddd;
     padding: 1px 3px;
 }
-.prose .portrait {
+:where(.prose) .portrait {
     float: right;
     width: 35%;
     margin-left: 2em;
@@ -128,6 +112,6 @@ blockquote {
 
 /*Any element after hr needs to have a top margin, otherwise it looks very
 close to the hr element*/
-.prose hr + * {
+:where(.prose) hr + * {
     margin-top: 2em;
 }

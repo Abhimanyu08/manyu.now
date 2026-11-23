@@ -1,13 +1,15 @@
-<aside>
+<aside class="sidebar">
   <h2>{{ .title }}</h2>
-  <div id="aside-body" class="prose">
+  <div class="sidebar-groups">
     {{ range .groups }}
-    <section>
-      <h3>{{ .title }} </h3>
-      {{ with .description }}<p>{{ . | markdownify }}</p>{{ end }}
-      {{ with .items }}
-      <ul>{{ range . }}<li>{{ . | markdownify }}</li>{{ end }}</ul>
-      {{ end }}
+    <section class="sidebar-group">
+      <h3>{{ .title }}</h3>
+      <div class="sidebar-group-body prose">
+        {{ with .description }}<p>{{ . | markdownify }}</p>{{ end }}
+        {{ with .items }}
+        <ul>{{ range . }}<li>{{ . | markdownify }}</li>{{ end }}</ul>
+        {{ end }}
+      </div>
     </section>
     {{ end }}
   </div>

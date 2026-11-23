@@ -145,35 +145,30 @@ a:hover {
 
 /* LAYOUT */
 
-main {
+.page-header {
+    margin-bottom: var(--spacing-6);
+}
+
+/* Two columns, lined up on their first baselines: the first line of the
+   article and the sidebar heading share a baseline whatever their size. */
+.columns {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
+    align-items: baseline;
 }
 
-main > article {
-    width: 45%;
-}
-
-main > aside {
-    width: 45%;
-    margin-top: calc(var(--leading-heading) + var(--spacing-6));
+.columns > * {
+    flex-basis: 48%;
 }
 
 nav {
-    width: 45%;
+    width: 48%;
     display: flex;
     justify-content: space-between;
     gap: var(--spacing-8);
     margin-bottom: var(--spacing-16);
     font-family: var(--font-sans);
     line-height: var(--leading-tight);
-}
-
-main > aside > div#aside-body {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-8);
 }
 
 nav a {
@@ -199,7 +194,9 @@ blockquote {
     overflow-wrap: break-word;
 }
 
-/* A blank line between paragraphs, as in the About text */
+/* Headings everywhere get only their identity: face, weight, color and size.
+   Rhythm (line height and margins) belongs to .prose, in prose.css.
+   Outside prose a heading is a UI element, and its container spaces it. */
 
 h1,
 h2,
@@ -214,16 +211,12 @@ h6 {
 
 h1 {
     font-size: var(--h1);
+    /* Page titles can wrap, and 32px text needs more than the body's 32px leading */
     line-height: var(--leading-heading);
-    margin-top: var(--spacing-16);
-    margin-bottom: var(--spacing-6);
 }
 
 h2 {
     font-size: var(--h2);
-    line-height: var(--leading-tight);
-    margin-top: var(--spacing-12);
-    margin-bottom: var(--spacing-6);
 }
 
 h3,
@@ -231,14 +224,6 @@ h4,
 h5,
 h6 {
     font-size: var(--body);
-    line-height: var(--leading-tight);
-    margin-top: var(--spacing-8);
-    margin-bottom: var(--spacing-3);
-}
-
-/* No extra space above the first thing on a page */
-:is(h1, h2, h3, h4, h5, h6):first-child {
-    margin-top: 0;
 }
 
 p:last-child,
@@ -249,10 +234,46 @@ pre:last-child {
     margin-bottom: 0;
 }
 
-/* Aside */
+/* SIDEBAR (Life in lists)
+   A component, not prose: the containers set every gap, so children carry
+   no margins. Headings inherit the body's 32px line height, so the gaps
+   below are 8px smaller than the visible space they produce.
+   The group body keeps .prose only for link and bullet styles. */
 
-main > aside > div#aside-body p {
-    margin-bottom: var(--spacing-3);
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-4);
+}
+
+.sidebar-groups {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--spacing-8);
+}
+
+.sidebar-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2);
+}
+
+.sidebar-group-body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-3);
+}
+
+.sidebar-group-body > * {
+    margin: 0;
+}
+
+/* FEED (Stream): an intro, then one prose article per entry */
+
+.feed {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-12);
 }
 
 /* PAGE LIST (Writing) */

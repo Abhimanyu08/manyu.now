@@ -43,10 +43,19 @@
     <a href="/stream"> Stream </a>
   </nav>
   <main>
-    {{ block "main" .}} {{ end }}
-    {{ block "aside" . }}
-    {{ with .Params.aside }}{{ partial "aside.html" . }}{{ end }}
+    {{ block "title" . }}
+    {{ if not .Params.hideTitle }}
+    <header class="page-header">
+      <h1>{{ .Title }}</h1>
+    </header>
     {{ end }}
+    {{ end }}
+    <div class="columns">
+      {{ block "main" . }}{{ end }}
+      {{ block "aside" . }}
+      {{ with .Params.aside }}{{ partial "aside.html" . }}{{ end }}
+      {{ end }}
+    </div>
   </main>
 </body>
 
