@@ -25,14 +25,11 @@
     font-display: swap;
 }
 
-/* DESIGN TOKENS
-   Names and values match the tokens in the Paper file, so design and code stay in sync. */
-
 :root {
     /* Color */
-    --background: #faf0d2;
-    --accent: #fa132e;
-    --text: #444444;
+    --background: oklch(95.5% 0.041 91.7);
+    --accent: oklch(62.5% 0.248 25);
+    --text: oklch(38.7% 0 0);
 
     /* Font family */
     --font-body: "Source Serif 4", Georgia, serif;
@@ -48,6 +45,9 @@
     --leading-body: 32px;
     --leading-tight: 24px;
     --leading-heading: 40px;
+
+    /* Radius */
+    --radius: 4px;
 
     /* Spacing scale: the number is the value divided by 4px */
     --spacing-1: 4px;
@@ -69,6 +69,10 @@
 
     /* Layout */
     --content-width: 592px;
+
+    /* External icon*/
+    --external-link-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 20' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M15 3h6v6'/><path d='M10 14 21 3'/><path d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6'/></svg>");
+    --mail-link-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 18' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7'/><rect x='2' y='4' width='20' height='16' rx='2'/></svg>");
 }
 
 /* RESET */
@@ -136,11 +140,36 @@ a {
     color: var(--accent);
     text-decoration: none;
     text-underline-offset: 2px;
+    background-color: oklch(from var(--accent) l c h / 0.05);
+    border-radius: var(--radius);
 }
 
 a:hover {
-    text-decoration: underline;
-    text-decoration-color: var(--accent);
+    background-color: oklch(from var(--accent) l c h / 0.2);
+}
+
+a[href^="http"]:not([href*="manyu.now"])::after {
+    content: "";
+    background-color: currentColor;
+    display: inline-block;
+    width: 0.7em;
+    height: 0.7em;
+    mask-image: var(--external-link-icon);
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    margin-inline-start: var(--spacing-1);
+}
+
+a[href^="mailto"]::after {
+    content: "";
+    background-color: currentColor;
+    display: inline-block;
+    width: 1.1cap;
+    height: 1.1cap;
+    mask-image: var(--mail-link-icon);
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    margin-inline-start: var(--spacing-1);
 }
 
 /* LAYOUT */
@@ -159,6 +188,8 @@ a:hover {
 
 .columns > * {
     flex-basis: 48%;
+    flex-grow: 0;
+    flex-shrink: 0;
 }
 
 nav {
@@ -276,29 +307,66 @@ pre:last-child {
     gap: var(--spacing-12);
 }
 
-/* PAGE LIST (Writing) */
+/* LEADER ROW
+   A label, a dashed line that takes the leftover width, then a value.
+   The texts share a baseline; the line sits in the middle of the row.
+   The line is the row's ::before, moved between the two children with order. */
 
-.page-item:first-of-type {
-    border-top: dotted 1px var(--accent);
-}
-
-.page-item {
+.leader-row {
     display: flex;
-    justify-content: space-between;
     align-items: baseline;
     gap: var(--spacing-4);
-    border-bottom: dotted 1px var(--accent);
-    padding: var(--spacing-2);
+    line-height: var(--leading-tight);
 }
 
-.page-item a {
+.leader-row::before {
+    content: "";
+    order: 1;
+    flex: 1;
+    align-self: center;
+    border-top: 1px dashed var(--text);
+}
+
+.leader-row > :last-child {
+    order: 2;
     flex-shrink: 0;
-    font-family: var(--font-sans);
 }
 
-.page-item aside {
-    font-style: italic;
-    font-size: 0.95em;
-    text-align: right;
-    max-width: 50%;
+/* PAGE META (essay sidebar): Published and Slug */
+
+.page-meta {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-6);
+}
+
+.page-meta .leader-row {
+    gap: var(--spacing-3);
+}
+
+.page-meta dt {
+    font-weight: 700;
+}
+
+/* PAGE LIST (Writing): one leader row per page */
+
+/* Titles here have no half-leading above them, while an essay's first line has
+   6px. The extra 8px makes the gap under the page title look the same. */
+.listing {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-8);
+    margin-top: var(--spacing-2);
+}
+
+.page-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-6);
+}
+
+.page-list a {
+    font-size: var(--h2);
+    font-weight: 700;
 }

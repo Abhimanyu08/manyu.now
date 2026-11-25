@@ -84,8 +84,7 @@ blockquote {
 }
 
 :where(.prose) a {
-    text-decoration: underline;
-    text-decoration-color: var(--accent);
+    text-decoration: none;
     color: var(--text);
 }
 
