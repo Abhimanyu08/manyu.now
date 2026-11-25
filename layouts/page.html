@@ -1,8 +1,24 @@
 {{ define "main" }}
 <article class="prose">
-  {{ .Content }} {{ if .Date}}
-  <br />
-  <p>Published on <b>{{ .Date.Format "January 2, 2006" }}</b>.</p>
-  {{ end }}
+  {{ .Content }}
 </article>
+{{ end }}
+
+{{ define "aside" }}
+{{ if .Date }}
+<aside>
+  <dl class="page-meta">
+    <div class="leader-row">
+      <dt>Published</dt>
+      <dd><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 January 2006" }}</time></dd>
+    </div>
+    <div class="leader-row">
+      <dt>Slug</dt>
+      <dd>{{ strings.TrimSuffix "/" .RelPermalink }}</dd>
+    </div>
+  </dl>
+</aside>
+{{ else }}
+{{ with .Params.aside }}{{ partial "aside.html" . }}{{ end }}
+{{ end }}
 {{ end }}
